@@ -15,7 +15,7 @@ import sys, os
 
 sys.path.insert(0, os.path.abspath('../../src/python_bindings/'))
 
-ON_RTD = os.environ.get('READTHEDOCS', False)
+ON_RTD = os.environ.get('READTHEDOCS_VIRTUALENV_PATH', False)
 if ON_RTD:
     sys.path.insert(0, ON_RTD)
   
