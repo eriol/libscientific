@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('../../src/python_bindings/'))
 if 'READTHEDOCS' in os.environ:
     sys.path.insert(0, os.environ.get('READTHEDOCS_VIRTUALENV_PATH'))
     import clang.cindex
-    clang.cindex.Config.set_library_file("/usr/lib/x86_64-linux-gnu/libclang-14.so.14.0.0")
+    clang.cindex.Config.set_library_file("/usr/lib/llvm-14/lib/libclang-14.so.1")
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
