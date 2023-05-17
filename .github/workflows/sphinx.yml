@@ -6,9 +6,13 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      READTHEDOCS: true
+
     steps:
       - uses: actions/checkout@v3
       - name: Build HTML
         uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "docs/Source"
+          pre-build-command: "apt-get update -y && apt-get install -y libclang1-14"
