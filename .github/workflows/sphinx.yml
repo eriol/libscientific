@@ -11,9 +11,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: build and install libscientific
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install liblapack-dev cmake
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE -DCMAKE_BUILD_TYPE=Debug
+          sudo make install
       # This step is not needed on Github since the ubuntu-latest image is
       # bigger, but it make usable the medium act image (it's around 500MB).
-      - name: Install dependencies
+      - name: Install dependencies for documentation
         run: |
           sudo apt-get update -y
           sudo apt-get install -y tzdata libclang1-14 python3-pip
